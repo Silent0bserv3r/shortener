@@ -1,0 +1,8 @@
+{
+    "tabWidth": 4,
+    "endOfLine": "lf",
+    "singleAttributePerLine": true,
+    "printWidth": 100,
+    "arrowParens": "always",
+    "bracketSpacing": true
+}
