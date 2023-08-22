@@ -1,8 +1,10 @@
-import './globals.css'
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import NavBar from "@/components/NavBar";
+import "./globals.css";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import { Providers } from "@/store/Provider";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
     title: "Shortener",
@@ -10,15 +12,15 @@ export const metadata: Metadata = {
     icons: "/favicon.png",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout(props: React.PropsWithChildren) {
     return (
         <html lang="en">
-            <body className={inter.className}>{children}</body>
+            <Providers>
+                <body className={inter.className}>
+                    <NavBar />
+                    {props.children}
+                </body>
+            </Providers>
         </html>
     );
 }
-
-
-
-
-
