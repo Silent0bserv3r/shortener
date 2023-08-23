@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAction, createSlice } from "@reduxjs/toolkit";
 import { HYDRATE } from "next-redux-wrapper";
 import { AppState } from "./store";
 
@@ -10,6 +10,8 @@ const initialState: AuthState = {
     authState: false,
 };
 
+const hydrate = createAction(HYDRATE, (auth: AuthState) => ({ payload: auth }));
+
 export const authSlice = createSlice({
     name: "auth",
     initialState,
@@ -18,13 +20,10 @@ export const authSlice = createSlice({
             state.authState = action.payload;
         },
     },
-    extraReducers: {
-        [HYDRATE]: (state, action) => {
-            return {
-                ...state,
-                ...action.payload.auth,
-            };
-        },
+    extraReducers: (builder) => {
+        builder.addCase(hydrate, (state, { payload }) => {
+            state.authState = payload.authState;
+        });
     },
 });
 
