@@ -13,9 +13,12 @@ function NavBar() {
     return (
         <nav className="w-full flex justify-center items-center px-8 py-5 border-b-2 border-slate-200">
             <div className="w-full flex justify-between max-w-7xl">
-                <div id="logo">
-                    <h1 className="font-black text-4xl">Shortener</h1>
-                </div>
+                <Link
+                    href={"/"}
+                    className="font-black text-4xl"
+                >
+                    Shortener
+                </Link>
                 <ul
                     id="navLinks"
                     className="flex items-center justify-center font-bold text-lg text-slate-700 "
