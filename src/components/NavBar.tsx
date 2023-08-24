@@ -3,11 +3,14 @@
 import Link from "next/link";
 import React from "react";
 import UserAccountIcon from "./UserAccountIcon";
-import { useStore } from "@/store/store";
 import { NavLink, NavLinks as navlinks } from "@/constants/NavLinks";
+import { useAuthStore } from "@/store/bearStore";
+import useHydrationStore from "@/store/store";
 
 const NavBar = () => {
-    const [authState, setAuthState] = useStore((state) => [state.auth, state.setAuth]);
+    const setAuthState = useAuthStore((state) => state.setAuth);
+    const authState = useHydrationStore(useAuthStore, (state) => state.auth);
+
     return (
         <nav className="w-full flex justify-center items-center px-8 py-5 border-b-2 border-slate-200">
             <div className="w-full flex justify-between max-w-7xl">

@@ -1,11 +1,17 @@
-import { create } from "zustand";
+import { useState, useEffect } from "react";
 
-interface AuthState {
-    auth: boolean;
-    setAuth: (to: boolean) => void;
-}
+const useHydrationStore = <T, F>(
+    store: (callback: (state: T) => unknown) => unknown,
+    callback: (state: T) => F
+) => {
+    const result = store(callback) as F;
+    const [data, setData] = useState<F>();
 
-export const useStore = create<AuthState>()((set) => ({
-    auth: false,
-    setAuth: (to) => set((state) => ({ auth: to })),
-}));
+    useEffect(() => {
+        setData(result);
+    }, [result]);
+
+    return data;
+};
+
+export default useHydrationStore;
