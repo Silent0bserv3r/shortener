@@ -1,15 +1,13 @@
 "use client";
 
-import { NavLink, NavLinks as navlinks } from "@/constants/NavLinks";
-import { selectAuthState, setAuthState } from "@/store/authSlice";
 import Link from "next/link";
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
 import UserAccountIcon from "./UserAccountIcon";
+import { useStore } from "@/store/store";
+import { NavLink, NavLinks as navlinks } from "@/constants/NavLinks";
 
-function NavBar() {
-    const authState = useSelector(selectAuthState);
-    const dispatch = useDispatch();
+const NavBar = () => {
+    const [authState, setAuthState] = useStore((state) => [state.auth, state.setAuth]);
     return (
         <nav className="w-full flex justify-center items-center px-8 py-5 border-b-2 border-slate-200">
             <div className="w-full flex justify-between max-w-7xl">
@@ -32,9 +30,7 @@ function NavBar() {
                         </li>
                     ))}
                     <button
-                        onClick={() =>
-                            authState ? dispatch(setAuthState(false)) : dispatch(setAuthState(true))
-                        }
+                        onClick={() => (authState ? setAuthState(false) : setAuthState(true))}
                         className={
                             authState
                                 ? "ms-5 flex justify-center hover:opacity-75"
@@ -51,6 +47,6 @@ function NavBar() {
             </div>
         </nav>
     );
-}
+};
 
 export default NavBar;
