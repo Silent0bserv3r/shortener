@@ -16,7 +16,7 @@ const NavBar = () => {
             <div className="w-full flex justify-between max-w-7xl">
                 <Link
                     href={"/"}
-                    className="font-black text-4xl"
+                    className="font-black text-4xl text-black"
                 >
                     Shortener
                 </Link>

@@ -1,3 +1,4 @@
+import Loading from "@/components/Loading";
 import Link from "next/link";
 
 export default function Page() {
