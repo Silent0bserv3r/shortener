@@ -5,7 +5,7 @@ const nunito = Nunito({ subsets: ["latin"], preload: true });
 
 function About() {
     return (
-        <section className="mt-8 flex flex-col w-full max-w-3xl items-center justify-center gap-5 bg-white py-5 px-16 shadow">
+        <section className="mt-8 flex flex-col w-full max-w-3xl items-center justify-center gap-5 bg-white py-5 px-16 shadow rounded">
             <article className={nunito.className}>
                 <h1 className="text-3xl text-blackish font-black mb-3">Why Shortener ?</h1>
                 <p className="text-lg">
