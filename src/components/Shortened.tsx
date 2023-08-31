@@ -36,9 +36,17 @@ function Shortened() {
                     }
                 />
             </button>
-            <button onClick={() => setCopied(handleCopyButton("https://www.youtube.com"))}>
+            <button
+                onClick={() => {
+                    setCopied(handleCopyButton("https://www.youtube.com"));
+                    setTimeout(() => setCopied(false), 2000);
+                }}
+            >
                 {copied ? (
-                    <TickIcon className={"w-6 h-6 text-green-500"} />
+                    <div className="flex flex-col items-center">
+                        <TickIcon className={"w-3 h-3 text-green-500"} />
+                        <h5 className="text-xs text-slate-400 font-bold">Copied</h5>
+                    </div>
                 ) : (
                     <ClipboardIcon
                         className={"w-6 h-6"}
