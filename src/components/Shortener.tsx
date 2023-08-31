@@ -11,7 +11,7 @@ function Shortener() {
             >
                 <input
                     type="text"
-                    className="text-lg p-3 flex-1 border-l border-t border-b border-slate-400 rounded-tl rounded-bl focus: rounded-tr-none focus:rounded-br-none"
+                    className="text-lg p-3 flex-1 border-l border-t border-b border-slate-200 rounded-tl rounded-bl focus: rounded-tr-none focus:rounded-br-none"
                     name="url"
                     placeholder="Paste the URL here"
                 />

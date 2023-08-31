@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import React from "react";
-import UserAccountIcon from "./UserAccountIcon";
+import UserAccountIcon from "./icons/UserAccountIcon";
 import { NavLink, NavLinks as navlinks } from "@/constants/NavLinks";
 import { useAuthStore } from "@/store/bearStore";
 import useHydrationStore from "@/store/store";

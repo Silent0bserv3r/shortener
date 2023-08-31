@@ -1,8 +1,9 @@
+import { IconProps } from "@/constants/Types";
 import React from "react";
 
-function UserAccountIcon(props: { className: string }) {
+function UserAccountIcon(props: IconProps) {
     return (
-        <div>
+        <div className={props.parentClass}>
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
