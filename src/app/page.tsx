@@ -3,6 +3,7 @@
 import About from "@/components/About";
 import Shortened from "@/components/Shortened";
 import Shortener from "@/components/Shortener";
+import Uses from "@/components/Uses";
 import { useShortenedStore } from "@/store/shortStore";
 import useHydrationStore from "@/store/store";
 
@@ -13,6 +14,7 @@ export default function Page() {
             <Shortener />
             {shortened && <Shortened />}
             <About />
+            <Uses />
         </main>
     );
 }

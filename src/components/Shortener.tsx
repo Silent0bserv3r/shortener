@@ -10,11 +10,11 @@ function Shortener() {
     const setShortened = useShortenedStore((state) => state.setShortened);
     const [loading, setLoading] = useState(false);
     return (
-        <section className="mt-12 flex flex-col w-full max-w-3xl items-center justify-center gap-5 bg-white py-5 px-16 shadow rounded">
+        <section className="mt-12 flex flex-col w-full max-w-3xl items-center justify-center bg-white py-5 px-16 shadow rounded">
             <h1 className="text-4xl text-blue-400 font-extrabold">Paste the URL to be shortened</h1>
             <form
                 onSubmit={(e) => e.preventDefault()}
-                className="flex w-full max-w-2xl"
+                className="flex w-full max-w-2xl mt-9"
             >
                 <input
                     type="text"
