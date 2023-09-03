@@ -1,7 +1,4 @@
-type Term = {
-    title?: string;
-    description?: string;
-};
+import { Term } from "./Types";
 
 export const Terms: Term[] = [
     {
