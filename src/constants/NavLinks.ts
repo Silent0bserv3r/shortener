@@ -7,7 +7,7 @@ export type NavLink = {
 export const NavLinks: NavLink[] = [
     {
         name: "How it works?",
-        href: "/works",
+        href: "/how-it-works",
         key: "work",
     },
     {

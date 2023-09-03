@@ -3,7 +3,7 @@ import React from "react";
 
 function Footer() {
     return (
-        <footer className="flex w-full border-t-2 justify-center items-center p-12">
+        <footer className="flex w-full border-t-2 justify-center items-center p-10">
             <div className="px-6 border-r-2 border-slate-800 font-bold">© 2023 - Shortener</div>
             <nav>
                 <ul className="flex text-blue-500">

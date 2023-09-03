@@ -11,7 +11,7 @@ const nunito = Nunito({ subsets: ["latin"], preload: true });
 
 function Uses() {
     return (
-        <section className="mt-8 flex w-full max-w-5xl items-center justify-center gap-2 py-5 px-16">
+        <section className="my-16 flex w-full max-w-5xl items-center justify-center gap-2 py-5 px-16">
             <article className={`grid grid-cols-3 gap-9 ${nunito.className} text-slate-600`}>
                 <figure className="flex flex-col items-center text-center">
                     <LikeIcon className="w-12 h-12" />
