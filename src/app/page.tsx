@@ -1,7 +1,6 @@
 "use client";
 
 import About from "@/components/About";
-import Footer from "@/components/Footer";
 import Shortened from "@/components/Shortened";
 import Shortener from "@/components/Shortener";
 import Uses from "@/components/Uses";
@@ -16,7 +15,6 @@ export default function Page() {
             {shortened && <Shortened />}
             <About />
             <Uses />
-            <Footer />
         </main>
     );
 }

@@ -4,6 +4,7 @@ import useBoundStore from "@/store/hydrationStore";
 import NavBar from "./NavBar";
 import useHydrationStore from "@/store/store";
 import Loading from "./Loading";
+import Footer from "./Footer";
 
 export default function Home(props: React.PropsWithChildren) {
     const hasHydrated = useHydrationStore(useBoundStore, (state) => state._hasHydrated);
@@ -14,6 +15,7 @@ export default function Home(props: React.PropsWithChildren) {
         <>
             <NavBar />
             {props.children}
+            <Footer />
         </>
     );
 }

@@ -8,7 +8,7 @@ function Footer() {
             <nav>
                 <ul className="flex text-blue-500">
                     <li className="px-6 border-r-2 border-slate-800 hover:text-blue-800">
-                        <Link href={"/"}>Terms And Conditions</Link>
+                        <Link href={"/terms"}>Terms And Conditions</Link>
                     </li>
                     <li className="px-6 border-r-2 border-slate-800 hover:text-blue-800">
                         <Link href={"/"}>Privacy</Link>
