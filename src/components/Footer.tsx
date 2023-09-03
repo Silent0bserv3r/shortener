@@ -11,7 +11,7 @@ function Footer() {
                         <Link href={"/terms"}>Terms And Conditions</Link>
                     </li>
                     <li className="px-6 border-r-2 border-slate-800 hover:text-blue-800">
-                        <Link href={"/"}>Privacy</Link>
+                        <Link href={"/"}>Privacy Policy</Link>
                     </li>
                     <li className="px-6 hover:text-blue-800">
                         <Link href={"/"}>Unshorten</Link>
