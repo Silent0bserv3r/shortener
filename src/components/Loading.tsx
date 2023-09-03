@@ -1,8 +1,8 @@
-export default function Loading() {
+export default function Loading(props: { className: string; textClass: string }) {
     return (
-        <main className="h-screen w-screen flex flex-col justify-center items-center">
+        <>
             <svg
-                className="h-24 w-24 text-slate-500 animate-spin"
+                className={props.className}
                 viewBox="0 0 38 38"
                 xmlns="http://www.w3.org/2000/svg"
                 stroke="currentColor"
@@ -25,7 +25,7 @@ export default function Loading() {
                     </g>
                 </g>
             </svg>
-            <h1 className="text-5xl mt-7 text-slate-500">Loading...</h1>
-        </main>
+            <h1 className={props.textClass}>Loading...</h1>
+        </>
     );
 }
