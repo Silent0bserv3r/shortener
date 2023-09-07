@@ -1,15 +1,12 @@
-import Image from "next/image";
 import React from "react";
-import { Nunito } from "next/font/google";
-import coffee from "@/assets/coffee.svg";
 import Me from "@/components/Me";
-
-const nunito = Nunito({ subsets: ["latin"], preload: true });
+import ContactMe from "@/components/ContactMe";
 
 function Page() {
     return (
         <main>
             <Me />
+            <ContactMe />
         </main>
     );
 }

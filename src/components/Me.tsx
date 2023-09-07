@@ -15,7 +15,7 @@ function Me() {
                 alt="Profile Photo"
                 width={200}
                 height={200}
-                className="rounded-full mx-12"
+                className="rounded-full mx-12 shadow-xl hover:shadow-none hover:translate-y-1 transition-all duration-200 ease-in-out"
                 priority
             />
             <span className="bg-slate-200 w-2 rounded-lg" />
