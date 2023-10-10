@@ -7,6 +7,6 @@ export const delayTimeout: (delay: number) => Promise<boolean> = (delay: number)
 };
 
 export function handleCopyButton(copyText: string) {
-    navigator.clipboard.writeText(copyText);
+    navigator.clipboard.writeText(copyText).then();
     return true;
 }
