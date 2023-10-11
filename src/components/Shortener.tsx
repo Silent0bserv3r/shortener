@@ -2,13 +2,17 @@
 import { useShortenedStore } from "@/store/shortStore";
 import useHydrationStore from "@/store/store";
 import { delayTimeout } from "@/utils/Helper";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import CircleIcon from "./icons/CircleIcon";
+import { testVercelKV } from "@/utils/Shortner";
 
 function Shortener() {
     const shortened = useHydrationStore(useShortenedStore, (state) => state.shortened);
     const setShortened = useShortenedStore((state) => state.setShortened);
     const [loading, setLoading] = useState(false);
+    useEffect(()=> {
+        testVercelKV().then();
+    }, []);
     return (
         <section className="mt-12 flex flex-col w-full max-w-3xl items-center justify-center bg-white py-5 px-16 shadow rounded">
             <h1 className="text-4xl text-blue-400 font-extrabold">Paste the URL to be shortened</h1>
