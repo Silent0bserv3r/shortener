@@ -1,3 +1,5 @@
+"use server";
+
 import { kv } from '@vercel/kv';
 import isURL from 'validator/es/lib/isURL';
 import { BASE_URL } from "@/utils/Helper";
@@ -59,7 +61,6 @@ async function shortenUrl(url: string): Promise<string> {
             token = generateToken();
         } while (await ifTokenExists(token))
         await createKeyPair(token, url);
-
     }
     return BASE_URL+token;
 }
