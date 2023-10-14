@@ -1,3 +1,5 @@
+export const BASE_URL = 'https://shortener.garrycodes.co.in/';
+
 export const delayTimeout: (delay: number) => Promise<boolean> = (delay: number) => {
     return new Promise((resolve) => {
         setTimeout(() => {

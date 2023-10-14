@@ -1,11 +1,11 @@
 import { create } from "zustand";
 
 interface ShortenedState {
-    shortened: boolean;
-    setShortened: (to: boolean) => void;
+    shortened: string;
+    setShortened: (to: string) => void;
 }
 
 export const useShortenedStore = create<ShortenedState>()((set) => ({
-    shortened: false,
+    shortened: '',
     setShortened: (to) => set({ shortened: to }),
 }));

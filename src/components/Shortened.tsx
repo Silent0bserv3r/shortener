@@ -7,14 +7,15 @@ import { handleCopyButton } from "@/utils/Helper";
 import TickIcon from "./icons/TickIcon";
 import ArrowUpIcon from "./icons/ArrowUpIcon";
 import Link from "next/link";
-import Loading from "./Loading";
 import QRCode from "react-qr-code";
+import useHydrationStore from "@/store/store";
+import { useShortenedStore } from "@/store/shortStore";
+import { BASE_URL } from "@/utils/Helper";
 
 function Shortened() {
     const [copied, setCopied] = useState(false);
-    const [qrLoaded, setQrLoaded] = useState(false);
     const qrDialog = useRef<HTMLDialogElement>(null);
-    const shortenedUrl = "https://shortener.garrycodes.co.in/i2ih1q";
+    const shortenedUrl = useHydrationStore(useShortenedStore, (state) => state.shortened) ?? BASE_URL;
 
     useEffect(() => {
         qrDialog.current?.addEventListener("click", (event) => {
@@ -33,6 +34,7 @@ function Shortened() {
                     name="url"
                     placeholder="Paste the URL here"
                     value={shortenedUrl}
+                    onChange={() => {}}
                 />
             </form>
             <Link
