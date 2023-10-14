@@ -1,3 +1,3 @@
-export default function Page({ params }: {params : {token: string}}) {
-
+export default function NotFound() {
+    return 'Not Found';
 }

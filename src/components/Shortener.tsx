@@ -6,6 +6,7 @@ import { shortenUrl } from "@/utils/Shortener";
 
 function Shortener() {
     const setShortened = useShortenedStore((state) => state.setShortened);
+    const setIsInvalid = useShortenedStore((state) => state.setIsInvalid);
     const [loading, setLoading] = useState(false);
     const formUrl = useRef<HTMLInputElement>(null);
     return (
@@ -31,7 +32,15 @@ function Shortener() {
                     className="p-3 bg-blue-900 text-slate-50 font-bold text-lg rounded-tr rounded-br w-36 flex justify-center items-center"
                     onClick={async () => {
                         setLoading(true);
-                        setShortened(await shortenUrl(formUrl.current?.value ?? ''));
+                        const token = await shortenUrl(formUrl.current?.value ?? '');
+                        console.log(token);
+                        if (token != '') {
+                            console.log(token);
+                            setShortened(token);
+                            setIsInvalid(false);
+                        } else {
+                            setIsInvalid(true);
+                        }
                         setLoading(false);
                     }}
                 >

@@ -2,7 +2,7 @@
 
 import { kv } from '@vercel/kv';
 import isURL from 'validator/es/lib/isURL';
-import { BASE_URL } from "@/utils/Helper";
+import { useShortenedStore } from "@/store/shortStore";
 
 function generateToken() {
     const characters = '1234567890abcdefghijklmnopqrstuvwxyz';
@@ -34,10 +34,10 @@ async function ifTokenExists(token: string) {
     }
 }
 
-async function getTokenUrl(token: string): Promise<string> {
-    let value = '';
+async function getTokenUrl(token: string): Promise<string | null> {
+    let value: string | null = null;
     try {
-        value = await kv.get(token) ?? '';
+        value = await kv.get(token);
     } catch (e) {
         console.log(e);
     }
@@ -62,7 +62,7 @@ async function shortenUrl(url: string): Promise<string> {
         } while (await ifTokenExists(token))
         await createKeyPair(token, url);
     }
-    return BASE_URL+token;
+    return token;
 }
 
 

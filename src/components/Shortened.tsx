@@ -10,12 +10,11 @@ import Link from "next/link";
 import QRCode from "react-qr-code";
 import useHydrationStore from "@/store/store";
 import { useShortenedStore } from "@/store/shortStore";
-import { BASE_URL } from "@/utils/Helper";
 
 function Shortened() {
     const [copied, setCopied] = useState(false);
     const qrDialog = useRef<HTMLDialogElement>(null);
-    const shortenedUrl = useHydrationStore(useShortenedStore, (state) => state.shortened) ?? BASE_URL;
+    const shortenedUrl = useHydrationStore(useShortenedStore, (state) => state.shortened) ?? '';
 
     useEffect(() => {
         qrDialog.current?.addEventListener("click", (event) => {
@@ -33,12 +32,12 @@ function Shortened() {
                     className="text-lg p-3 flex-1 rounded border border-slate-200"
                     name="url"
                     placeholder="Paste the URL here"
-                    value={shortenedUrl}
+                    value={window.location + shortenedUrl}
                     onChange={() => {}}
                 />
             </form>
             <Link
-                href={shortenedUrl}
+                href={'/'+shortenedUrl}
                 target="_blank"
             >
                 <ArrowUpIcon
@@ -66,7 +65,7 @@ function Shortened() {
             >
                 <div className="p-40">
                     <h1>QR Code</h1>
-                    <QRCode value={shortenedUrl} />
+                    <QRCode value={window.location + shortenedUrl } />
                     <button
                         onClick={() => {
                             qrDialog.current?.close();
@@ -78,7 +77,7 @@ function Shortened() {
             </dialog>
             <button
                 onClick={() => {
-                    setCopied(handleCopyButton(shortenedUrl));
+                    setCopied(handleCopyButton(window.location + shortenedUrl));
                     setTimeout(() => setCopied(false), 2000);
                 }}
             >
